@@ -1,0 +1,297 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+#include<string.h>
+#include<ctype.h>
+void booking(int e,int b,int c,int dd,int mm,int yy,char movie[10][20],char place[10][10])
+{
+    int i,j,d;
+    int a[10][10];
+    char timing[10][10]={"9:00 AM","10:00 AM","11:00 AM","12:00 PM","1:00 PM","2:00 PM","3:00 PM","6:00 PM","7:00 PM","10:00 PM"};
+    printf("**TIMINGS**\n");
+    printf("--MORNING--\n1.)9:00 AM\t2.)10:00 AM\t3.)11:00 AM\n");
+    printf("--AFTERNOON--\n4.)12:00 PM\t5.)1:00 PM\t6.)2:00 PM\t7.)3:00 PM\n");
+    printf("--EVENING--\n8.)6:00 PM\t9.)7:00 PM\t10.)10:00 PM\n");
+    printf("\nEnter the timing as per the menu number:\n");
+    scanf("%d",&d);
+    printf("\nThe movie show timing you have chosen is %s\n\n",timing[d-1]);
+    printf("\t\t\t\t\t**BOOKING SEATS**\n");
+    int row,col,n;
+    char ans;
+    printf("seats avilable(A)\treserved(-)\n\n");
+    printf("\t\t\t**PREMIUM(RS.300/-)**\n\t\t\t(ROW:1,2,3||COLUMN:1-10)\n");
+    for(i=1;i<=3;i++)
+    {
+        for(j=1;j<=10;j++)
+        {
+            printf("%c\t",a[i][j]);
+        }
+        printf("\n\n");
+    }
+    printf("\t\t\t**EXECUTIVE(RS.200/-)**\n\t\t\t(ROW:4,5,6||COLUMN:1-10)\n");
+    for(i=4;i<=6;i++)
+    {
+        for(j=1;j<=10;j++)
+        {
+            printf("%c\t",a[i][j]);
+        }
+        printf("\n\n");
+    }
+    printf("\t\t\t**NORMAL(RS.100/-)**\n\t\t\t(ROW:7,8,9,10||COLUMN:1-10)\n");
+    for(i=7;i<=10;i++)
+    {
+        for(j=1;j<=10;j++)
+        {
+            printf("%c\t",a[i][j]);
+        }
+        printf("\n\n");
+    }
+    printf("Please enter the row and the column to book the seat:\n");
+    scanf("%d%d",&row,&col);
+    printf("enter the number of seats to be booked:\n");
+    scanf("%d",&n);
+    printf("\n**AFTER BOOKING**\n");
+    for(j=col;j<col+n;j++)
+    {
+        a[row][j]='-';
+    }
+    printf("\t\t\t**PREMIUM(RS.300/-)**\n\t\t\t(ROW:1,2,3||COLUMN:1-10)\n");
+    for(i=1;i<=3;i++)
+    {
+        for(j=1;j<=10;j++)
+        {
+            printf("%c\t",a[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\t\t\t**EXECUTIVE(RS.200/-)**\n\t\t\t(ROW:4,5,6||COLUMN:1-10)\n");
+    for(i=4;i<=6;i++)
+    {
+        for(j=1;j<=10;j++)
+        {
+            printf("%c\t",a[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\t\t\t**NORMAL(RS.100/-)**\n\t\t\t(ROW:7,8,9,10||COLUMN:1-10)\n");
+    for(i=7;i<=10;i++)
+    {
+        for(j=1;j<=10;j++)
+        {
+            printf("%c\t",a[i][j]);
+        }
+        printf("\n");
+    }
+    int amount=1;
+    char range[10][10]={"PREMIUM","PREMIUM","PREMIUM","EXECUTIVE","EXECUTIVE","EXECUTIVE","NORMAL","NORMAL","NORMAL","NORMAL"};
+    char pay[10][10]={"RS.300/-","RS.300/-","RS.300/-","RS.200/-","RS.200/-","RS.200/-","RS.100/-","RS.100/-","RS.100/-","RS.100/-"};
+    printf("\n\nThe price of the ticket per person is %s\n\n",pay[row-1]);
+    if(row==1)
+    {
+        amount=300*n;
+        printf("The total amount to be paid is Rs.%d/-\n\n",amount);
+    }
+    else if(row==2)
+    {
+        amount=300*n;
+        printf("The total amount to be paid is Rs.%d/-\n\n",amount);
+    }
+    else if(row==3)
+    {
+        amount=300*n;
+        printf("The total amount to be paid is Rs.%d/-\n\n",amount);
+    }
+    else if(row==4)
+    {
+        amount=200*n;
+        printf("The total amount to be paid is Rs.%d/-\n\n",amount);
+    }
+    else if(row==5)
+    {
+        amount=200*n;
+        printf("The total amount to be paid is Rs.%d/-\n\n",amount);
+    }
+    else if(row==6)
+    {
+        amount=200*n;
+        printf("The total amount to be paid is Rs.%d/-\n\n",amount);
+    }
+    else if(row==7)
+    {
+        amount=100*n;
+        printf("The total amount to be paid is Rs.%d/-\n\n",amount);
+    }
+    else if(row==8)
+    {
+        amount=100*n;
+        printf("The total amount to be paid is Rs.%d/-\n\n",amount);
+    }
+    else if(row==9)
+    {
+        amount=100*n;
+        printf("The total amount to be paid is Rs.%d/-\n\n",amount);
+    }
+    else if(row==10)
+    {
+        amount=100*n;
+        printf("The total amount to be paid is Rs.%d/-\n\n",amount);
+    }
+    printf("Do you wan't to view the ticket?(y/n)\n\n");
+    scanf(" %c",&ans);
+    if(ans=='y'||ans=='Y')
+    {
+        for(i=1;i<=23;i++)
+        printf("-x-\t");
+        printf("\n\n");
+        printf("\t\t*****TICKET DETAILS*****\n");
+        printf("PLACE:%s\t\t\tDATE:%d/%d/%d\n",place[e-1],dd,mm,yy);
+        printf("MOVIE:%s\t\t\tTIMINGS:%s\n",movie[b-1],timing[d-1]);
+        printf("SEAT ALLOTMENT:ROW-%d AND COLUMN-%d\n",row,col);
+        printf("CLASS:%s\t\t\tTICKET PRICE(PER TICKET):%s\n",range[row-1],pay[row-1]);
+        printf("NUMBER OF PERSONS:%d\n",n);
+        printf("TOTAL AMOUNT TO BE PAID: Rs.%d/-\n",amount);
+        for(i=1;i<=23;i++)
+        printf("-x-\t");
+        printf("\n");
+    }
+    theatre();
+    //return 0;
+}
+void theatre(char place[10][10],char movie[10][20])
+{
+    int e,b,c,i,j,a[10][10];
+    int dd,mm,yy;
+    int num;
+    {
+        printf("\nEnter the DD/MM/YYYY:\n\n");
+        scanf("%d%d%d",&dd,&mm,&yy);
+        printf("**THEATRE LIST**\n");
+        printf("1:KARKALA\n2:UDUPI\n3:BANGALORE\n4:MANGALORE\n5:PUNE\n6:MYSORE\n7:MANIPAL\n8:ALLAHABAD\n9:KOCHI\n10:CHENNAI\n");
+        printf("\n\nEnter the place of the theatre:\n");
+        scanf("%d",&e);
+        printf("\n\nMovies available in %s on %d/%d/%d are as follows:\n\n",place[e-1],dd,mm,yy);
+        printf("**MOVIE LIST**\n");
+        printf("1:KALKI(HINDI/TAMIL/KANNADA)\n2:AVESHAM(MALAYALAM/HINDI/TAMIL)\n3:BHIMAA(HINDI/ENGLISH/TELUGU)\n4:DEAR(TAMIL/ENGLISH/MALAYALAM)\n5:GHOST BUSTER(ENGLISH/HINDI)\n");
+        printf("6:UNFROSTED(ENGLISH/HINDI)\n7:FLAME(HINDI/MALAYALAM)\n8:CRAKK(HINDI/ENGLISH/KANNADA)\n9:PREMALU(MALAYALAM/TAMIL/TELUGU)\n10:GAME ON(TAMIL/MALAYALAM)\n");
+        printf("\n\nEnter the movie number from the list:\n");
+        scanf("%d",&b);
+        printf("\n");
+        if(b==1)
+        {
+            char language[3][10]={"HINDI","TAMIL","KANNADA"};
+            printf("**LANGUAGE**\n1.HINDI\n2.TAMIL\n3.KANNADA\n");
+            printf("\n\nEnter the LANGUAGE for %s movie from above list:\n",movie[b-1]);
+            scanf("%d",&c);
+            printf("\nTiming for %s movie in %s language are as follows:\n\n",movie[b-1],language[c-1]);
+            if(c==1)
+            {
+                booking(e,b,c,dd,mm,yy,movie,place);
+            }
+            if(c==2)
+            {
+                booking(e,b,c,dd,mm,yy,movie,place);
+            }
+            if(c==3)
+            {
+                booking(e,b,c,dd,mm,yy,movie,place);
+            }
+        }
+        else if(b==2)
+        {
+            char language[3][10]={"MALAYALAM","HINDI","TAMIL"};
+            printf("**LANGUAGE**\n1.MALAYALAM\n2.HINDI\n3.TAMIL\n");
+            printf("\n\nEnter the LANGUAGE for %s movie from above list:\n",movie[b-1]);
+            scanf("%d",&c);
+            printf("\nTiming for %s movie in %s language are as follows:\n\n",movie[b-1],language[c-1]);
+        }
+        else if(b==3)
+        {
+            char language[3][10]={"HINDI","ENGLISH","TELUGU"};
+            printf("**LANGUAGE**\n1.HINDI\n2.ENGLISH\n3.TELUGU\n");
+            printf("\n\nEnter the LANGUAGE for %s movie from above list:\n",movie[b-1]);
+            scanf("%d",&c);
+            printf("\nTiming for %s movie in %s language are as follows:\n\n",movie[b-1],language[c-1]);
+        }
+        else if(b==4)
+        {
+            char language[3][10]={"TAMIL","ENGLISH","MALAYALAM"};
+            printf("**LANGUAGE**\n1.TAMIL\n2.ENGLISH\n3.MALAYALAM\n");
+            printf("\n\nEnter the LANGUAGE for %s movie from above list:\n",movie[b-1]);
+            scanf("%d",&c);
+            printf("\nTiming for %s movie in %s language are as follows:\n\n",movie[b-1],language[c-1]);
+        }
+        else if(b==5)
+        {
+            char language[2][10]={"ENGLISH","HINDI"};
+            printf("**LANGUAGE**\n1.ENGLISH\n2.HINDI\n");
+            printf("\n\nEnter the LANGUAGE for %s movie from above list:\n",movie[b-1]);
+            scanf("%d",&c);
+            printf("\nTiming for %s movie in %s language are as follows:\n\n",movie[b-1],language[c-1]);
+        }
+        else if(b==6)
+        {
+            char language[2][10]={"ENGLISH","HINDI"};
+            printf("**LANGUAGE**\n1.ENGLISH\n2.HINDI\n");
+            printf("\n\nEnter the LANGUAGE for %s movie from above list:\n",movie[b-1]);
+            scanf("%d",&c);
+            printf("\nTiming for %s movie in %s language are as follows:\n\n",movie[b-1],language[c-1]);
+        }
+        else if(b==7)
+        {
+            char language[2][10]={"HINDI","MALAYALAM"};
+            printf("**LANGUAGE**\n1.HINDI\n2.MALAYALAM\n");
+            printf("\n\nEnter the LANGUAGE for %s movie from above list:\n",movie[b-1]);
+            scanf("%d",&c);
+            printf("\nTiming for %s movie in %s language are as follows:\n\n",movie[b-1],language[c-1]);
+        }
+        else if(b==8)
+        {
+            char language[3][10]={"HINDI","ENGLISH","KANNADA"};
+            printf("**LANGUAGE**\n1.HINDI\n2.ENGLISH\n3.KANNADA\n");
+            printf("\n\nEnter the LANGUAGE for %s movie from above list:\n",movie[b-1]);
+            scanf("%d",&c);
+            printf("\nTiming for %s movie in %s language are as follows:\n\n",movie[b-1],language[c-1]);
+        }
+        else if(b==9)
+        {
+            char language[3][10]={"MALAYALAM","TAMIL","TELUGU"};
+            printf("**LANGUAGE**\n1.MALAYALAM\n2.TAMIL\n3.TELUGU\n");
+            printf("\n\nEnter the LANGUAGE for %s movie from above list:\n",movie[b-1]);
+            scanf("%d",&c);
+            printf("\nTiming for %s movie in %s language are as follows:\n\n",movie[b-1],language[c-1]);
+        }
+        else if(b==10)
+        {
+            char language[2][10]={"TAMIL","MALAYALAM"};
+            printf("**LANGUAGE**\n1.TAMIL\n2.MALAYALAM\n");
+            printf("\n\nEnter the LANGUAGE for %s movie from above list:\n",movie[b-1]);
+            scanf("%d",&c);
+            printf("\nTiming for %s movie in %s language are as follows:\n\n",movie[b-1],language[c-1]);
+        }
+    }
+}
+void main()
+{
+    int i,z,choice;int i;
+    char a[10][10];
+    for(i=1;i<=10;i++)
+    {
+        for(j=1;j<=10;j++)
+        {
+            a[i][j]='A';
+        }
+    }
+    char cont='y',place[10][10]={"KARKALA","UDUPI","BANGALORE","MANGALORE","PUNE","MYSORE","MANIPAL","ALLAHABAD","KOCHI","CHENNAI"};
+    char movie[10][20]={"KALKI","AVESHAM","BHIMAA","DEAR","GHOST BUSTER","UNFROSTED","FLAME","CRAKK","PREMALU","GAME ON"};
+    for(i=1;i<=23;i++)
+    printf("-x-\t");
+    printf("\n\n");
+    printf("\t\t\t\t\t\t\t\t*****WELCOME TO SPAM BYTES's MOVIE SITE*****\n\n");
+    for(i=1;i<=23;i++)
+    printf("-x-\t");
+    printf("\n");
+    printf("ENTER THE DETAILS BELOW TO BOOK A MOVIE:\n");
+    theatre(place,movie);
+}
+
+
